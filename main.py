@@ -68,8 +68,8 @@ def main():
         print("2-Please choose the location. ")
         print("3-Please enter the cargo weight.")
         print("4-Please enter the weather condition.")
-        print("dis")
-        print("5-Exit")
+        print("5-Please choose the distance (5-500 km).")
+        print("6-Exit")
 
         choice = input("enter choice").strip()
 
@@ -79,7 +79,20 @@ def main():
             location()
         elif choice=="3":
              weight()
+        elif choice=="4":
+            weather()
+            weather = input("Enter the weather condition (Clear, Rain, Storm): ").strip().title()
+            if weather not in ["Clear", "Rain", "Storm"]:
+                print("Invalid weather condition. Please try again.")
         elif choice == "5":
+            distance()
+            try:
+                distance = int(input("Enter the delivery distance (5-500 km): "))
+                if distance < 5 or distance > 500:
+                    print("Invalid distance. Please enter a value between 5 and 500 km.")
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+        elif choice == "6":
             print("Goodbye!")
             break
         else:
