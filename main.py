@@ -45,6 +45,7 @@ def weight():
     except ValueError:
         print("Invalid input. Please enter a valid number.")
         return None
+def weather():
 
 
 
