@@ -15,3 +15,15 @@ for i in range(3):
     
     robots[name] = zone 
 
+    # Get total distance
+while True:
+    try:
+        distance = int(input("\nEnter total delivery distance (5-500 km): "))
+        if 5 <= distance <= 500:
+            print("Distance Check: Within Range")
+            break
+        else:
+            print("Distance must be between 5 and 500.")
+    except ValueError:
+        print("Please enter a valid number.")
+        
