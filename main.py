@@ -26,4 +26,20 @@ while True:
             print("Distance must be between 5 and 500.")
     except ValueError:
         print("Please enter a valid number.")
-        
+
+ # Get cargo weights
+cargo_weights = {}
+print("\nEnter cargo weight for each robot (1-50 kg):")
+
+for robot in robots:
+    while True:
+        try:
+            weight = int(input(f"{robot}: "))
+            if 1 <= weight <= 50:
+                cargo_weights[robot] = weight
+                break
+            else:
+                print("Weight must be between 1 and 50 kg.")
+        except ValueError:
+            print("Please enter a valid number.")
+
