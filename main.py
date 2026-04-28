@@ -46,7 +46,16 @@ def weight():
         print("Invalid input. Please enter a valid number.")
         return None
 def weather():
-
+  while True:
+        weather = input("\nEnter weather conditions (Clear, Rain, Storm): ").strip().title()
+        if weather in ["Clear", "Rain", "Storm"]:
+            if weather == "Storm":
+                print("Weather Check: Unsafe")
+            else:
+                print("Weather Check: Safe")
+            break
+        else:
+            print("Invalid weather.")
 
 
 
