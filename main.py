@@ -26,6 +26,10 @@ while True:
             print("Distance must be between 5 and 500.")
     except ValueError:
         print("Please enter a valid number.")
+        
+        #Check distance (affects all robots)
+if distance > 300:
+    unsafe_robots = list(robots.keys()) 
 
  # Get cargo weights
 cargo_weights = {}
@@ -43,6 +47,11 @@ for robot in robots:
         except ValueError:
             print("Please enter a valid number.")
 
+# Check individual robot weights
+for robot, weight in cargo_weights.items():
+    if weight > 50:
+        unsafe_robots.append(robot)
+
 # Get weather condition
 valid_weather = ["Clear", "Rain", "Storm"]
 
@@ -56,8 +65,13 @@ while True:
         break
     else:
         print("Invalid weather condition.")
+
+# Check weather (affects all robots)
+if weather == "Storm":
+    unsafe_robots = list(robots.keys())
  # Final safety check
 unsafe = False
+unsafe_robots = []
 
 if distance > 300:
     unsafe = True
@@ -66,11 +80,23 @@ if weather == "Storm":
     unsafe = True
 
 # Check if any robot exceeds weight
-for weight in cargo_weights.values():
+for robot, weight in cargo_weights.items():
     if weight > 50:
         unsafe = True
+        unsafe_robots.append(robot)
+
 if unsafe:
     print("\nSafety Alert: At least one robot is not safe for delivery.")
 else:
     print("\nAll robots are safe for delivery.")
 
+# Final output
+if unsafe_robots:
+    print("\nDeployment Unsafe! The following robots are not safe:")
+    for robot in unsafe_robots:
+        print(f"{robot}: {robots[robot]}, {cargo_weights[robot]}kg")
+else:
+    print()
+    for robot in robots:
+        print(f"{robot}: {robots[robot]}, {cargo_weights[robot]}kg")
+    print("Robots Ready for Delivery!")
