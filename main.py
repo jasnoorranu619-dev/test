@@ -56,4 +56,21 @@ while True:
         break
     else:
         print("Invalid weather condition.")
+ # Final safety check
+unsafe = False
+
+if distance > 300:
+    unsafe = True
+
+if weather == "Storm":
+    unsafe = True
+
+# Check if any robot exceeds weight
+for weight in cargo_weights.values():
+    if weight > 50:
+        unsafe = True
+if unsafe:
+    print("\nSafety Alert: At least one robot is not safe for delivery.")
+else:
+    print("\nAll robots are safe for delivery.")
 
