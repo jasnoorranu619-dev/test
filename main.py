@@ -7,7 +7,7 @@ for i in range(3):
     name = input("Enter robot name: ")
     
     while True:
-        zone = input(f"Choose a delivery zone for {name} (Downtown, Suburbs, Industrial): ")
+        zone = input(f"Choose a delivery zone for {name} (Downtown, Suburbs, Industrial): ").strip().title()
         if zone in zones:
             break
         else:
@@ -42,4 +42,18 @@ for robot in robots:
                 print("Weight must be between 1 and 50 kg.")
         except ValueError:
             print("Please enter a valid number.")
+
+# Get weather condition
+valid_weather = ["Clear", "Rain", "Storm"]
+
+while True:
+    weather = input("\nEnter weather conditions (Clear, Rain, Storm): ").strip().title()
+    if weather in valid_weather:
+        if weather == "Storm":
+            print("Weather Check: Unsafe")
+        else:
+            print("Weather Check: Safe")
+        break
+    else:
+        print("Invalid weather condition.")
 
