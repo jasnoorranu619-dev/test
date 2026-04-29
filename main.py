@@ -1,4 +1,3 @@
-
 robots = {}
 zones = ["Downtown", "Suburbs", "Industrial"]
 
@@ -99,4 +98,3 @@ else:
     print()
     for robot in robots:
         print(f"{robot}: {robots[robot]}, {cargo_weights[robot]}kg")
-   
