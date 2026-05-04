@@ -2,18 +2,17 @@ robots = {}
 zones = ["Downtown", "Suburbs", "Industrial"]
 
 # Collect robot names and zones
-def add_robot():
-    for i in range(3):
-        name = input("Enter robot name: ")
-        
-        while True:
-            zone = input(f"Choose a delivery zone for {name} (Downtown, Suburbs, Industrial): ").strip().title()
-            if zone in zones:
-                break
-            else:
-                print("Invalid zone. Please choose from the given options.")
-        
-        robots[name] = zone 
+for i in range(3):
+    name = input("Enter robot name: ")
+    
+    while True:
+        zone = input(f"Choose a delivery zone for {name} (Downtown, Suburbs, Industrial): ").strip().title()
+        if zone in zones:
+            break
+        else:
+            print("Invalid zone. Please choose from the given options.")
+    
+    robots[name] = zone 
 
     # Get total distance
 while True:
@@ -83,8 +82,7 @@ if weather == "Storm":
 for robot, weight in cargo_weights.items():
     if weight > 45:
         unsafe = True
-        unsafe_robots.append(robot)
-
+        unsafe_robots.append(robot) 
 if unsafe: 
     print("\nSafety Alert: not safe for delivery.")
 else:
@@ -98,39 +96,5 @@ if unsafe_robots:
 else:
     print()
     for robot in robots:
-        print(f"{robot}: {robots[robot]}, {cargo_weights[robot]}kg") 
-
-def main():
-    print("Welcome to the robot delivery system!")
-
-    while True:
-        print("\nPlease choose an option:")
-        print("1 - Add robot")
-        print("2 - Show robots")
-        print("3 - Remove robot")
-        print("4 - Show number of robots")
-        print("5 - Show delivery info")
-        print("0 - Exit")
-
-        choice = input("Enter choice: ").strip()
-
-        if choice == "1":
-            add_robot()
-        elif choice == "2":
-            show_robots()
-        elif choice == "3":
-            remove_robot()
-        elif choice == "4":
-            show_robot_count()
-        elif choice == "5":
-            show_delivery_info()
-        elif choice == "0":
-            print("Goodbye!")
-            break
-        else:
-            print("Invalid option. Please try again.")
-
-
-if __name__ == "__main__":
-    main()
-       
+        print(f"{robot}: {robots[robot]}, {cargo_weights[robot]}kg")
+ 
