@@ -84,8 +84,8 @@ for robot, weight in cargo_weights.items():
         unsafe = True
         unsafe_robots.append(robot)
 
-if unsafe:
-    print("\nSafety Alert: At least one robot is not safe for delivery.")
+if unsafe: 
+    print("\nSafety Alert: not safe for delivery.")
 else:
     print("\nAll robots are safe for delivery.")
 
