@@ -80,7 +80,7 @@ if weather == "Storm":
 
 # Check if any robot exceeds weight
 for robot, weight in cargo_weights.items():
-    if weight > 50:
+    if weight > 45:
         unsafe = True
         unsafe_robots.append(robot)
 
@@ -97,4 +97,4 @@ if unsafe_robots:
 else:
     print()
     for robot in robots:
-        print(f"{robot}: {robots[robot]}, {cargo_weights[robot]}kg")
+        print(f"{robot}: {robots[robot]}, {cargo_weights[robot]}kg") 
